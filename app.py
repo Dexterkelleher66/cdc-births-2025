@@ -3,9 +3,16 @@ CDC Provisional Natality 2025 Explorer
 Main Streamlit Application Entry Point.
 """
 
+import sys
+import os
+
+# Ensure project root is at the beginning of sys.path for Streamlit Cloud deployment
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import pandas as pd
 import streamlit as st
 from utils.data_loader import load_and_validate_data, MONTH_ORDER
+
 from utils.components import (
     render_header,
     render_kpis,
